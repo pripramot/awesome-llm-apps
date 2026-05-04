@@ -1,90 +1,65 @@
-# 🌐 Browser MCP Agent
+# ♾️ Browser MCP Agent
 
 https://github.com/user-attachments/assets/a01e09fa-131b-479a-8df3-2d1a61fd80f3
 
-A Streamlit application that allows you to browse and interact with websites using natural language commands through the Model Context Protocol (MCP) and [MCP-Agent](https://github.com/lastmile-ai/mcp-agent) with Playwright integration.
+แอปพลิเคชัน Streamlit ที่ใช้ Agent ควบคุมเบราว์เซอร์ด้วยคำสั่งภาษาธรรมชาติ ผ่าน MCP (Model Context Protocol) และ [MCP-Agent](https://github.com/lastmile-ai/mcp-agent) ร่วมกับ Playwright
 
-## Features
+## ความสามารถ
 
-- **Natural Language Interface**: Control a browser with simple English commands
-- **Full Browser Navigation**: Visit websites and navigate through pages
-- **Interactive Elements**: Click buttons, fill forms, and scroll through content
-- **Visual Feedback**: Take screenshots of webpage elements
-- **Information Extraction**: Extract and summarize content from webpages
-- **Multi-step Tasks**: Complete complex browsing sequences through conversation
+- **สั่งงานด้วยภาษาธรรมชาติ**: ควบคุมเบราว์เซอร์ด้วยคำพูดธรรมดา
+- **นำทางเว็บไซต์**: เปิดหน้าเว็บ คลิกปุ่ม กรอกฟอร์ม เลื่อนหน้า
+- **ถ่ายภาพหน้าจอ**: บันทึกผลลัพธ์จากหน้าเว็บ
+- **สกัดข้อมูล**: สรุปเนื้อหาจากหน้าเว็บอัตโนมัติ
+- **ทำงานหลายขั้นตอน**: รันลำดับคำสั่งซับซ้อนผ่านการสนทนา
 
-## Setup
-
-### Requirements
+## ความต้องการของระบบ
 
 - Python 3.8+
-- Node.js and npm (for Playwright)
-  - This is a critical requirement! The app uses Playwright to control a headless browser
-  - Download and install from [nodejs.org](https://nodejs.org/)
-- OpenAI or Anthropic API Key
+- Node.js และ npm (สำหรับ Playwright)
+  - ดาวน์โหลดจาก [nodejs.org](https://nodejs.org/)
+- OpenAI หรือ Anthropic API Key
 
-### Installation
+## วิธีติดตั้ง
 
-1. Clone this repository:
+1. คลอนโค้ด:
    ```bash
    git clone https://github.com/Shubhamsaboo/awesome-llm-apps.git
    cd mcp_ai_agents/browser_mcp_agent
    ```
 
-2. Install the required Python packages:
+2. ติดตั้ง Python packages:
    ```bash
    pip install -r requirements.txt
    ```
 
-3. Verify Node.js and npm are installed:
+3. ตรวจสอบ Node.js:
    ```bash
    node --version
    npm --version
    ```
-   Both commands should return version numbers. If they don't, please install Node.js.
 
-4. Set up your API keys:
-   - Set OpenAI API Key as an environment variable:
-     ```bash
-     export OPENAI_API_KEY=your-openai-api-key
-     ```
-
-
-### Running the App
-
-1. Start the Streamlit app:
+4. ตั้งค่า API key:
    ```bash
-   streamlit run main.py
+   export OPENAI_API_KEY=your-openai-api-key
    ```
 
-2. In the app interface:
-   - Enter your browsing command
-   - Click "Run Command"
-   - View the results and screenshots
+## วิธีรัน
 
-### Example Commands
+```bash
+streamlit run main.py
+```
 
-#### Basic Navigation
-- "Go to www.mcp-agent.com"
-- "Go back to the previous page"
+## ตัวอย่างคำสั่ง
 
-#### Interaction
-- "Click on the login button"
-- "Scroll down to see more content"
+- `"Go to www.mcp-agent.com"`
+- `"Click on the login button"`
+- `"Summarize the main content of this page"`
+- `"Go to the blog, find the most recent article, and summarize its key points"`
 
-#### Content Extraction
-- "Summarize the main content of this page"
-- "Extract the navigation menu items"
-- "Take a screenshot of the hero section"
+## สถาปัตยกรรม
 
-#### Multi-step Tasks
-- "Go to the blog, find the most recent article, and summarize its key points"
-
-## Architecture
-
-The application uses:
-- Streamlit for the user interface
-- MCP (Model Context Protocol) to connect the LLM with tools
-- Playwright for browser automation
-- [MCP-Agent](https://github.com/lastmile-ai/mcp-agent/) for the Agentic Framework
-- OpenAI's models to interpret commands and generate responses
+- **Streamlit** — หน้าเว็บ UI
+- **MCP (Model Context Protocol)** — เชื่อมต่อ LLM กับเครื่องมือ
+- **Playwright** — ควบคุมเบราว์เซอร์อัตโนมัติ
+- **[MCP-Agent](https://github.com/lastmile-ai/mcp-agent/)** — Agent Framework
+- **OpenAI** — ประมวลผลคำสั่งและสร้างคำตอบ

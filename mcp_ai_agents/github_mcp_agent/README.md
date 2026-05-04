@@ -1,81 +1,67 @@
 # 🐙 GitHub MCP Agent
 
-### 🎓 FREE Step-by-Step Tutorial 
-**👉 [Click here to follow our complete step-by-step tutorial](https://www.theunwindai.com/p/build-an-mcp-github-agent-in-less-than-50-lines-of-code) and learn how to build this from scratch with detailed code walkthroughs, explanations, and best practices.**
+### 🎓 บทเรียนแบบ Step-by-Step ฟรี
+**👉 [คลิกที่นี่เพื่อดูบทเรียนฉบับเต็ม](https://www.theunwindai.com/p/build-an-mcp-github-agent-in-less-than-50-lines-of-code)** — สร้าง GitHub MCP Agent จากศูนย์ใน 50 บรรทัด
 
-A Streamlit application that allows you to explore and analyze GitHub repositories using natural language queries through the Model Context Protocol (MCP).
+แอปพลิเคชัน Streamlit สำหรับสำรวจและวิเคราะห์ GitHub repositories ด้วยคำถามภาษาธรรมชาติผ่าน MCP (Model Context Protocol)
 
-**✨ Now using the official [GitHub MCP Server](https://github.com/github/github-mcp-server) from GitHub!**
+**✨ ใช้ [GitHub MCP Server](https://github.com/github/github-mcp-server) อย่างเป็นทางการจาก GitHub**
 
-## Features
+## ความสามารถ
 
-- **Natural Language Interface**: Ask questions about repositories in plain English
-- **Comprehensive Analysis**: Explore issues, pull requests, repository activity, and code statistics
-- **Interactive UI**: User-friendly interface with example queries and custom input
-- **MCP Integration**: Leverages the Model Context Protocol to interact with GitHub's API
-- **Real-time Results**: Get immediate insights on repository activity and health
+- **ถามเป็นภาษาธรรมชาติ**: สอบถามข้อมูล repository ด้วยคำพูดธรรมดา
+- **วิเคราะห์ครอบคลุม**: ดู Issues, Pull Requests, สถิติโค้ด
+- **UI ใช้งานง่าย**: มีตัวอย่างคำถามสำเร็จรูปและช่องป้อนอิสระ
+- **ผลลัพธ์แบบเรียลไทม์**: ข้อมูลสดจาก GitHub API ผ่าน MCP
 
-## Setup
-
-### Requirements
+## ความต้องการของระบบ
 
 - Python 3.8+
-- Docker (for official GitHub MCP server)
-  - Download and install from [docker.com](https://www.docker.com/get-started)
-  - Make sure Docker is running before starting the app
+- Docker (สำหรับ GitHub MCP server)
+  - ดาวน์โหลดจาก [docker.com](https://www.docker.com/get-started)
+  - ต้องเปิด Docker ก่อนรันแอป
 - OpenAI API Key
 - GitHub Personal Access Token
 
-### Installation
+## วิธีติดตั้ง
 
-1. Clone this repository:
+1. คลอนโค้ด:
    ```bash
    git clone https://github.com/Shubhamsaboo/awesome-llm-apps.git
    cd mcp-github-agent
    ```
 
-2. Install the required Python packages:
+2. ติดตั้ง Python packages:
    ```bash
    pip install -r requirements.txt
    ```
 
-3. Verify Docker is installed and running:
+3. ตรวจสอบ Docker:
    ```bash
    docker --version
    docker ps
    ```
 
-4. Get your API keys:
-   - **OpenAI API Key**: Get from [platform.openai.com/api-keys](https://platform.openai.com/api-keys)
-   - **GitHub Token**: Create at [github.com/settings/tokens](https://github.com/settings/tokens) with `repo` scope
+4. เตรียม API keys:
+   - **OpenAI API Key**: [platform.openai.com/api-keys](https://platform.openai.com/api-keys)
+   - **GitHub Token**: [github.com/settings/tokens](https://github.com/settings/tokens) (scope: `repo`)
 
-### Running the App
+## วิธีรัน
 
-1. Start the Streamlit app:
-   ```bash
-   streamlit run github_agent.py
-   ```
+```bash
+streamlit run github_agent.py
+```
 
-2. In the app interface:
-   - Enter your OpenAI API key
-   - Enter your GitHub token
-   - Specify a repository to analyze
-   - Select a query type or write your own
-   - Click "Run Query"
+## ตัวอย่างคำถาม
 
-### Example Queries
+**Issues:**
+- `"Show me issues by label"`
+- `"Find issues labeled as bugs"`
 
-#### Issues
-- "Show me issues by label"
-- "What issues are being actively discussed?"
-- "Find issues labeled as bugs"
+**Pull Requests:**
+- `"What PRs need review?"`
+- `"Show me recent merged PRs"`
 
-#### Pull Requests
-- "What PRs need review?"
-- "Show me recent merged PRs"
-- "Find PRs with conflicts"
-
-#### Repository
-- "Show repository health metrics"
-- "Show repository activity patterns"
-- "Analyze code quality trends"
+**Repository:**
+- `"Show repository health metrics"`
+- `"Analyze code quality trends"`
