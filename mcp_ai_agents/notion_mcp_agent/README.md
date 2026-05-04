@@ -1,111 +1,64 @@
 # 📑 Notion MCP Agent
 
-### 🎓 FREE Step-by-Step Tutorial 
-**👉 [Click here to follow our complete step-by-step tutorial](https://www.theunwindai.com/p/build-a-terminal-based-notion-agent-with-mcp) and learn how to build this from scratch with detailed code walkthroughs, explanations, and best practices.**
+### 🎓 บทเรียนแบบ Step-by-Step ฟรี
+**👉 [คลิกที่นี่เพื่อดูบทเรียนฉบับเต็ม](https://www.theunwindai.com/p/build-a-terminal-based-notion-agent-with-mcp)** — สร้าง Notion Agent ผ่าน Terminal จากศูนย์
 
-A terminal-based Notion Agent for interacting with your Notion pages using natural language through the Notion MCP (Model Context Protocol) server.
+Agent บน Terminal สำหรับโต้ตอบกับ Notion pages ด้วยภาษาธรรมชาติผ่าน Notion MCP server
 
-## Features
+## ความสามารถ
 
-- Interact with Notion pages via a command-line interface
-- Perform update, insert, retrieve operations on your Notion pages
-- Create and edit blocks, lists, tables, and other Notion structures
-- Add comments to blocks
-- Search for specific information
-- Remembers conversation context for multi-turn interactions
-- Session management for persistent conversations
+- อ่าน เขียน และแก้ไข Notion pages ผ่าน command line
+- สร้างและจัดการ blocks, lists, tables ใน Notion
+- เพิ่ม comments ให้กับ blocks
+- ค้นหาข้อมูลในหน้า Notion
+- จดจำบริบทการสนทนาแบบหลายรอบ
 
-## Prerequisites
+## ความต้องการของระบบ
 
 - Python 3.10+
-- A Notion account with admin permissions
-- A Notion Integration token
-- An OpenAI API key
+- Notion account (สิทธิ์ admin)
+- Notion Integration token
+- OpenAI API key
 
-## Installation
+## วิธีติดตั้ง
 
-1. Clone the repository
-2. Install the required Python packages:
+1. คลอนโค้ดและติดตั้ง packages:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+2. Notion MCP server จะถูกติดตั้งอัตโนมัติเมื่อรันแอป
+
+## ตั้งค่า Notion Integration
+
+1. ไปที่ [Notion Integrations](https://www.notion.so/my-integrations) แล้วคลิก "New integration"
+2. ตั้งชื่อและเลือกสิทธิ์ Read & Write content แล้วคัดลอก token
+3. เปิดหน้า Notion ที่ต้องการ → คลิก ⋮ → "Add connections" → เลือก integration ที่สร้าง
+
+## ค่า Environment Variables
 
 ```bash
-pip install -r requirements.txt
+NOTION_API_KEY=your-notion-integration-token
+OPENAI_API_KEY=your-openai-api-key
+NOTION_PAGE_ID=your-notion-page-id
 ```
 
-3. Install the Notion MCP server (will be done automatically when you run the app)
-
-## Setting Up Notion Integration
-
-### Creating a Notion Integration
-
-1. Go to [Notion Integrations](https://www.notion.so/my-integrations)
-2. Click "New integration"
-3. Name your integration (e.g., "Notion Assistant")
-4. Select the capabilities needed (Read & Write content)
-5. Submit and copy your "Internal Integration Token"
-
-### Sharing Your Notion Page with the Integration
-
-1. Open your Notion page
-2. Click the three dots (⋮) in the top-right corner of the page
-3. Select "Add connections" from the dropdown menu
-4. Search for your integration name in the search box
-5. Click on your integration to add it to the page
-6. Confirm by clicking "Confirm" in the dialog that appears
-
-Alternatively, you can also share via the "Share" button:
-1. Click "Share" in the top right
-2. In the sharing dialog, search for your integration name (preceded by "@")
-3. Click on your integration to add it
-4. Click "Invite" to grant it access to your page
-
-Both methods will grant your integration full access to the page and its content.
-
-### Finding Your Notion Page ID
-
-1. Open your Notion page in a browser
-2. Copy the URL, which looks like:
-   `https://www.notion.so/workspace/Your-Page-1f5b8a8ba283...`
-3. The ID is the part after the last dash and before any query parameters
-   Example: `1f5b8a8bad058a7e39a6`
-
-## Configuration
-
-You can configure the agent using environment variables:
-
-- `NOTION_API_KEY`: Your Notion Integration token
-- `OPENAI_API_KEY`: Your OpenAI API key
-- `NOTION_PAGE_ID`: The ID of your Notion page
-
-Alternatively, you can set these values directly in the script.
-
-## Usage
-
-Run the agent from the command line:
+## วิธีรัน
 
 ```bash
 python notion_mcp_agent.py
 ```
 
-When you start the agent, it will prompt you to enter your Notion page ID. You can:
-1. Enter your page ID at the prompt
-2. Press Enter without typing anything to use the default page ID (if set)
-3. Provide the page ID directly as a command-line argument (bypassing the prompt):
-
+หรือระบุ page ID โดยตรง:
 ```bash
 python notion_mcp_agent.py your-page-id-here
 ```
 
-### Conversation Flow
+พิมพ์ `exit`, `quit`, `bye` หรือ `goodbye` เพื่อออกจากโปรแกรม
 
-Each time you start the agent, it creates a unique user ID and session ID to maintain conversation context. This allows the agent to remember previous interactions and continue coherent conversations even after you close and restart the application.
+## ตัวอย่างคำสั่ง
 
-You can exit the conversation at any time by typing `exit`, `quit`, `bye`, or `goodbye`.
-
-## Example Queries
-
-- "What's on my Notion page?"
-- "Add a new paragraph saying 'Meeting notes for today'"
-- "Create a bullet list with three items: Apple, Banana, Orange"
-- "Add a comment to the first paragraph saying 'This looks good!'"
-- "Search for any mentions of meetings"
-- "Summarize our conversation so far"
+- `"What's on my Notion page?"`
+- `"Add a new paragraph saying 'Meeting notes for today'"`
+- `"Create a bullet list with three items: Apple, Banana, Orange"`
+- `"Search for any mentions of meetings"`
